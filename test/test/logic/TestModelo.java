@@ -30,24 +30,35 @@ public class TestModelo {
 
 	@Test
 	public void testDarTamano() {
-		// TODO
+	
+		setUp2();
+		
+		assertTrue("No sirve el tamano", modelo.darTamano() == CAPACIDAD);
 	}
 
 	@Test
 	public void testAgregar() {
-		// TODO Completar la prueba
+		
+		setUp2();
+		
+		assertTrue("No se agrego todo", modelo.darTamano() == CAPACIDAD);
 	}
 
 	@Test
 	public void testBuscar() {
 		setUp2();
-		// TODO Completar la prueba
+		
+		assertTrue("Buscar no sirve", modelo.buscar(8+"").equals(8+""));
+		
+	
 	}
 
 	@Test
 	public void testEliminar() {
+		
 		setUp2();
-		// TODO Completar la prueba
+		modelo.eliminar(90+"");
+		assertNull("No elimina", modelo.buscar(90+""));
 		
 	}
 
