@@ -95,7 +95,7 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 		ArrayList<T> lista = new ArrayList<>();
 		
 		T rta = null;
-
+		
 		for ( int i = 0; i < tamanoAct; i++)
 		{
 			if (((Comparable<T>) elementos[i]).compareTo(dato) != 0)
@@ -105,15 +105,14 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 			
 			else
 				rta = (T) elementos[i];
-		} 
-
-		T[] copia = (T[]) new Object[elementos.length];
+		}
+	
+		Object[] copia = new Object[elementos.length];
 			
 		for (int i = 0; i < lista.size(); i++) {
 
 			copia[i] = lista.get(i);
 		}
-
 
 		return rta;
 	}
