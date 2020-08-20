@@ -9,6 +9,11 @@ import com.opencsv.CSVReaderHeaderAware;
 public class Peliculas {
 	
 	/*
+	 * Numero de actores que participaron en la pelicula. 
+	 */
+	private int numeroActores;
+	
+	/*
 	 * Idetificador de la pelicula. 
 	 */
 	private int id;
