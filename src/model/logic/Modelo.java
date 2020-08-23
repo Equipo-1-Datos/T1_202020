@@ -2,6 +2,7 @@ package model.logic;
 
 import java.io.FileReader;
 import java.io.StringReader;
+import java.util.Arrays;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVParser;
@@ -79,27 +80,25 @@ public class Modelo {
 	public void cargarDatos() throws Exception
 	{
 		try {
-
-			//			Map<String, String> values = new CSVReaderHeaderAware(new FileReader("SmallMoviesDetailsCleaned.csv")).readMap();
-
-			String casting = "C:\\Users\\cajiv\\eclipse-workspace\\APO2";
-			String details = "C:\\Users\\cajiv\\eclipse-workspace\\APO2";
+			String casting = "docs/MoviesCastingRaw-small.csv";
+			String details = "docs/SmallMoviesDetailsCleaned.csv";
 
 			System.out.println("define rutas de documentos");
 
-			CSVParser parser = new CSVParserBuilder().withSeparator(';').build();
-
-			System.out.println(" crea el parser");
-
-			CSVReader reader1 = new CSVReaderBuilder(new StringReader(casting)).withSkipLines(1).withCSVParser(parser).build();
+			CSVParser parser1 = new CSVParserBuilder().withSeparator(';').build();
+			CSVParser parser2 = new CSVParserBuilder().withSeparator(';').build();
+			System.out.println(" crea los parcers");
+			
+			FileReader fr1 = new FileReader(casting);
+			FileReader fr2 = new FileReader(details);
+			
+			System.out.println("Crea los fr");
+			
+			CSVReader reader1 = new CSVReaderBuilder(fr1).withCSVParser(parser1).build();
 
 			System.out.println("Crea primer reader");
 
-			CSVParser parser2 = new CSVParserBuilder().withSeparator(';').build();
-
-			System.out.println(" crea el parser2");
-
-			CSVReader reader2 = new CSVReaderBuilder(new StringReader(details)).withSkipLines(1).withCSVParser(parser).build();
+			CSVReader reader2 = new CSVReaderBuilder(fr2).withCSVParser(parser2).build();
 
 			System.out.println("Crea primer reader2");
 
@@ -110,19 +109,21 @@ public class Modelo {
 			while((fila1 = reader1.readNext()) != null && (fila2 = reader2.readNext()) != null) 
 			{
 				System.out.println("Entra al while");
-				Object[] sirve = new String[10];
-				sirve[0]= fila1[1];
-				sirve[1]= fila1[3];
-				sirve[2]= fila1[5];
-				sirve[3]= fila1[7];
-				sirve[4]= fila1[9];
-				sirve[5]= fila1[13];
-				sirve[6]= fila2[2];
-				sirve[7]= fila2[16];
-				sirve[8]= fila2[17];
-				sirve[9]= fila2[18];
+				Object[] sirve = new String[12];
+				sirve[0]= fila1[0]; 
+				sirve[1]= fila2[0];
+				sirve[2]= fila1[1];
+				sirve[3]= fila1[3];
+				sirve[4]= fila1[5];
+				sirve[5]= fila1[7];
+				sirve[6]= fila1[9];
+				sirve[7]= fila1[12];
+				sirve[8]= fila2[2];
+				sirve[9]= fila2[16];
+				sirve[10]= fila2[17];
+				sirve[11]= fila2[18];
 
-				System.out.println(sirve);
+				System.out.println(Arrays.toString(sirve));
 
 				datos.agregar(sirve);
 			}
@@ -133,7 +134,7 @@ public class Modelo {
 
 		} 
 		catch (Exception e) {
-			throw new Exception("pifeo");
+			throw new Exception(e.getMessage() +"pifeo");
 		}
 
 	}
