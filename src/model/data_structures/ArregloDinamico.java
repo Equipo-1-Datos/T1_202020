@@ -1,7 +1,5 @@
 package model.data_structures;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * 2019-01-23
@@ -27,18 +25,24 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 	 */
 	private Object elementos[ ];
 
+
+	
+	
 	/**
 	 * Construir un arreglo con la capacidad maxima inicial.
 	 * @param max Capacidad maxima inicial
 	 */
 	public ArregloDinamico( int max )
 	{
-		elementos =  new Object[max];
+		elementos =  new Object[max][10];
 		tamanoMax = max;
 		tamanoAct = 0;
 	}
+	
+	
 
-	public void agregar( T dato )
+ 
+	public void agregar( Object dato ) // se tuvo que cambiar de tipo T a tipo objeto para que se pudieran agregar los arrays de String
 	{
 		if ( tamanoAct == tamanoMax )
 		{  // caso de arreglo lleno (aumentar tamaNo)
@@ -51,7 +55,7 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 			} 
 			System.out.println("Arreglo lleno: " + tamanoAct + " - Arreglo duplicado: " + tamanoMax);
 		}	
-		elementos[tamanoAct] = dato;
+		elementos[tamanoAct]= dato;
 		tamanoAct++;
 	}
 
@@ -116,6 +120,10 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 
 		return rta;
 	}
+
+
+
+
 
 
 

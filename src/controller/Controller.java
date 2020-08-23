@@ -23,7 +23,7 @@ public class Controller {
 		modelo = new Modelo();
 	}
 		
-	public void run() 
+	public void run() throws Exception 
 	{
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
@@ -87,12 +87,18 @@ public class Controller {
 					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
 					break;	
 					
+				case 7:
+					view.printMessage("--------- \n agregar datos csv: ");
+					modelo.cargarDatos();
+					view.printMessage("agrego todo " + modelo.darTamano() + "\n---------");		
+					break;	
+	
 				case 6: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();
 					fin = true;
 					break;	
-
+	
 				default: 
 					view.printMessage("--------- \n Opcion Invalida !! \n---------");
 					break;
