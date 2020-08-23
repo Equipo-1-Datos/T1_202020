@@ -1,5 +1,6 @@
 package model.data_structures;
 
+import java.util.ArrayList;
 
 /**
  * 2019-01-23
