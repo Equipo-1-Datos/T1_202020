@@ -108,7 +108,7 @@ public class Modelo {
 			System.out.println("Crear los dos readers");
 			while((fila1 = reader1.readNext()) != null && (fila2 = reader2.readNext()) != null) 
 			{
-				System.out.println("Entra al while");
+//				System.out.println("Entra al while");
 				Object[] sirve = new String[12];
 				sirve[0]= fila1[0]; 
 				sirve[1]= fila2[0];
@@ -123,7 +123,7 @@ public class Modelo {
 				sirve[10]= fila2[17];
 				sirve[11]= fila2[18];
 
-				System.out.println(Arrays.toString(sirve));
+//				System.out.println(Arrays.toString(sirve));
 
 				datos.agregar(sirve);
 			}
@@ -131,13 +131,22 @@ public class Modelo {
 			reader1.close();
 			reader2.close();
 
-
 		} 
 		catch (Exception e) {
 			throw new Exception(e.getMessage() +"pifeo");
 		}
 
 	}
+	
+	public void imprimir()
+	{
+		for (int i = 0; i < datos.darTamano()/4; i++) {
+			System.out.println(Arrays.deepToString((Object[]) datos.darElemento(i)));
+			System.out.println(darTamano());
+		}
+	}
+	
+	
 
 
 }
