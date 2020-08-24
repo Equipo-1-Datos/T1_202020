@@ -14,9 +14,10 @@ import model.data_structures.IArregloDinamico;
 
 /**
  * Definicion del modelo del mundo
+ * @param <T>
  *
  */
-public class Modelo {
+public class Modelo<T> {
 	/**
 	 * Atributos del modelo del mundo
 	 */
@@ -52,7 +53,7 @@ public class Modelo {
 	 * Requerimiento de agregar dato
 	 * @param dato
 	 */
-	public void agregar(Object dato)
+	public void agregar(String dato)
 	{	
 		datos.agregar(dato);
 	}
@@ -62,9 +63,9 @@ public class Modelo {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public Integer buscar(Integer dato)
+	public String buscar(String dato)
 	{
-		return (Integer) datos.buscar(dato);
+		return (String) datos.buscar(dato);
 	}
 
 	/**
@@ -72,9 +73,9 @@ public class Modelo {
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
-	public Integer eliminar(Integer dato)
+	public String eliminar(String dato)
 	{
-		return (Integer) datos.eliminar(dato);
+		return (String) datos.eliminar(dato);
 	}
 
 	public void cargarDatos() throws Exception
@@ -125,7 +126,7 @@ public class Modelo {
 
 //				System.out.println(Arrays.toString(sirve));
 
-				datos.agregar(sirve);
+				datos.agregar(Arrays.toString(sirve));
 			}
 
 			reader1.close();
@@ -144,13 +145,13 @@ public class Modelo {
 	}
 	
 	
-	public void imprimir()
-	{
-		for (int i = 0; i < datos.darTamano()/4; i++) {
-			System.out.println(Arrays.deepToString((Object[]) datos.darElemento(i)));
-			System.out.println(darTamano());
-		}
-	}
+//	public void imprimir()
+//	{
+//		for (int i = 0; i < datos.darTamano()/4; i++) {
+//			System.out.println(Arrays.deepToString((Object[]) datos.darElemento(i)));
+//			System.out.println(darTamano());
+//		}
+//	}
 	
 	
 

@@ -26,7 +26,7 @@ public interface IArregloDinamico <T extends Comparable <T>> {
 	 * Caso Especial: Si el arreglo esta lleno debe aumentarse su capacidad, agregar el nuevo dato y deben quedar multiples casillas disponibles para futuros nuevos datos.
 	 * @param sirve nuevo elemento
 	 */
-	public void agregar( Object sirve );
+	public void agregar( T sirve );
 		
 	/**
 	 * Buscar un dato en el arreglo.

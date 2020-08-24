@@ -23,6 +23,6 @@ public class Main {
 		System.out.println("Tamano inicial "+ model.darTamano());
 		model.cargarDatos();
 //		model.imprimir();
-		System.out.println("Tamano final"+model.darTamano());
+		System.out.println("Tamano final "+model.darTamano());
 	}
 }

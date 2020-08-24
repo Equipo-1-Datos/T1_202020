@@ -44,7 +44,7 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 	
 
  
-	public void agregar( Object dato ) // se tuvo que cambiar de tipo T a tipo objeto para que se pudieran agregar los arrays de String
+	public void agregar( T dato ) // se tuvo que cambiar de tipo T a tipo objeto para que se pudieran agregar los arrays de String
 	{
 		if ( tamanoAct == tamanoMax )
 		{  // caso de arreglo lleno (aumentar tamaNo)
@@ -59,8 +59,9 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 			System.out.println("Arreglo lleno: " + tamanoAct + " - Arreglo duplicado: " + tamanoMax);
 		}	
 		elementos[tamanoAct]= dato;
-		System.out.println(dato);
+//		System.out.println(dato);
 		tamanoAct++;
+		System.out.println(tamanoAct);
 	}
 
 	public int darCapacidad() {
@@ -71,10 +72,10 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 		return tamanoAct;
 	}
 
-	public Object darElemento(int i) {
+	public T darElemento(int i) {
 
 		if(i < tamanoAct)
-			return elementos[i];
+			return (T) elementos[i];
 
 		else
 			return null;
