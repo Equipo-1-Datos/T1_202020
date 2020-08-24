@@ -1,6 +1,7 @@
 package model.data_structures;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * 2019-01-23
@@ -54,9 +55,11 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 			{
 				elementos[i] = copia[i];
 			} 
+			
 			System.out.println("Arreglo lleno: " + tamanoAct + " - Arreglo duplicado: " + tamanoMax);
 		}	
 		elementos[tamanoAct]= dato;
+		System.out.println(dato);
 		tamanoAct++;
 	}
 
@@ -121,6 +124,12 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 
 		return rta;
 	}
+	
+	
+	// agregar metodo dar primer elemento
+	
+	// agregar metodo dar ultimo elemento
+	
 
 
 

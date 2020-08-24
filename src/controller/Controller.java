@@ -33,14 +33,14 @@ public class Controller {
 		while( !fin ){
 			view.printMenu();
 
+			System.out.println("El tamano act inicial es "+modelo.darTamano());
 			int option = lector.nextInt();
 			switch(option){
 				case 1:
-					view.printMessage("--------- \nCrear Arreglo \nDar capacidad inicial del arreglo: ");
-				    int capacidad = lector.nextInt();
-				    modelo = new Modelo(capacidad); 
+					view.printMessage("--------- \n Cargar Datos de los CSV: ");
+				    modelo.cargarDatos();
 				    view.printMessage("Arreglo Dinamico creado");
-				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
+				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");	
 					break;
 
 				case 2:
@@ -86,13 +86,7 @@ public class Controller {
 					view.printModelo(modelo);
 					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
 					break;	
-					
-				case 7:
-					view.printMessage("--------- \n agregar datos csv: ");
-					modelo.cargarDatos();
-					view.printMessage("agrego todo " + modelo.darTamano() + "\n---------");		
-					break;	
-	
+				
 				case 6: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();

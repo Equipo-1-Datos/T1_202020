@@ -20,7 +20,7 @@ public class Modelo {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	private IArregloDinamico datos;
+	private ArregloDinamico datos;
 
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
@@ -109,7 +109,7 @@ public class Modelo {
 			while((fila1 = reader1.readNext()) != null && (fila2 = reader2.readNext()) != null) 
 			{
 //				System.out.println("Entra al while");
-				Object[] sirve = new String[12];
+				Object[] sirve = new String[12];  // si no dejan usar array tipo objeto, convertir este array que sale a string.
 				sirve[0]= fila1[0]; 
 				sirve[1]= fila2[0];
 				sirve[2]= fila1[1];
@@ -121,7 +121,7 @@ public class Modelo {
 				sirve[8]= fila2[2];
 				sirve[9]= fila2[16];
 				sirve[10]= fila2[17];
-				sirve[11]= fila2[18];
+				sirve[11]= fila2[18]; // agregar release date !
 
 //				System.out.println(Arrays.toString(sirve));
 
@@ -137,6 +137,12 @@ public class Modelo {
 		}
 
 	}
+	
+	public void buenasDirector()
+	{
+		
+	}
+	
 	
 	public void imprimir()
 	{
