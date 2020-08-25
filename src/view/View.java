@@ -15,7 +15,7 @@ public class View
 		public void printMenu()
 		{
 			System.out.println("1. Cargar los datos de los CSV");
-			System.out.println("2. Agregar String");
+			System.out.println("2. Buenas peliculas por director");
 			System.out.println("3. Buscar String");
 			System.out.println("4. Eliminar String");
 //			System.out.println("5. Imprimir el Arreglo");

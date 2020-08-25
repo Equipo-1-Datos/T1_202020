@@ -27,31 +27,32 @@ public class Controller {
 	{
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
-//		String dato = null;
+		String dato = null;
 //		String respuesta = null;
 
 		while( !fin ){
 			view.printMenu();
 
-			System.out.println("El tamano act inicial es "+modelo.darTamano());
 			int option = lector.nextInt();
 			switch(option){
 				case 1:
 					view.printMessage("--------- \n Cargar Datos de los CSV: ");
 				    modelo.cargarDatos();
-				    view.printMessage("Arreglo Dinamico creado");
-				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");	
+				    view.printMessage("Información primera película: "+ modelo.darElemento(0));
+				    view.printMessage("Información primera película: "+ modelo.darElemento(27));
+				    view.printMessage("Información última película: "+ modelo.darElemento(modelo.darTamano()-1));
+				    view.printMessage("Total de películas " + (modelo.darTamano()-1) + "\n---------");	
 					break;
 
-//				case 2:
-//					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
-//					dato = lector.nextInt();
-//					modelo.agregar(dato);
-//					view.printMessage("Dato agregado");
-//					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-//					break;
+				case 2:
+					view.printMessage("--------- \n Buenas películas de un director: ");
+					lector.nextLine();
+					dato = lector.nextLine();
+					System.out.println("Este es el dato  "+ dato + "termina");
+					modelo.buenasDirector(dato);	
+					break;
 //
-//				case 3:
+//				case 3:	
 //					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
 //					dato = lector.nextInt();
 //					respuesta = modelo.buscar(dato);

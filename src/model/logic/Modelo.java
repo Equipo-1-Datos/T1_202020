@@ -11,6 +11,7 @@ import com.opencsv.CSVReaderBuilder;
 
 import model.data_structures.ArregloDinamico;
 import model.data_structures.IArregloDinamico;
+import view.View;
 
 /**
  * Definicion del modelo del mundo
@@ -23,6 +24,7 @@ public class Modelo<T> {
 	 */
 	private ArregloDinamico datos;
 
+	private View vista= new View();
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
 	 */
@@ -58,6 +60,11 @@ public class Modelo<T> {
 		datos.agregar(dato);
 	}
 
+	public String darElemento(int i)
+	{
+		return  (String) datos.darElemento(i);
+	}
+
 	/**
 	 * Requerimiento buscar dato
 	 * @param dato Dato a buscar
@@ -83,36 +90,25 @@ public class Modelo<T> {
 		try {
 			String casting = "docs/MoviesCastingRaw-small.csv";
 			String details = "docs/SmallMoviesDetailsCleaned.csv";
-
-			System.out.println("define rutas de documentos");
-
+			
 			CSVParser parser1 = new CSVParserBuilder().withSeparator(';').build();
 			CSVParser parser2 = new CSVParserBuilder().withSeparator(';').build();
-			System.out.println(" crea los parcers");
-			
+
 			FileReader fr1 = new FileReader(casting);
 			FileReader fr2 = new FileReader(details);
-			
-			System.out.println("Crea los fr");
-			
+
 			CSVReader reader1 = new CSVReaderBuilder(fr1).withCSVParser(parser1).build();
 
-			System.out.println("Crea primer reader");
-
 			CSVReader reader2 = new CSVReaderBuilder(fr2).withCSVParser(parser2).build();
-
-			System.out.println("Crea primer reader2");
 
 			String[] fila1 = null;
 			String[] fila2 = null;
 
-			System.out.println("Crear los dos readers");
 			while((fila1 = reader1.readNext()) != null && (fila2 = reader2.readNext()) != null) 
 			{
-//				System.out.println("Entra al while");
-				Object[] sirve = new String[12];  // si no dejan usar array tipo objeto, convertir este array que sale a string.
+				Object[] sirve = new String[12];  
 				sirve[0]= fila1[0]; 
-				sirve[1]= fila2[0];
+				sirve[1]= fila2[10];
 				sirve[2]= fila1[1];
 				sirve[3]= fila1[3];
 				sirve[4]= fila1[5];
@@ -122,9 +118,7 @@ public class Modelo<T> {
 				sirve[8]= fila2[2];
 				sirve[9]= fila2[16];
 				sirve[10]= fila2[17];
-				sirve[11]= fila2[18]; // agregar release date !
-
-//				System.out.println(Arrays.toString(sirve));
+				sirve[11]= fila2[18];
 
 				datos.agregar(Arrays.toString(sirve));
 			}
@@ -138,22 +132,25 @@ public class Modelo<T> {
 		}
 
 	}
+
 	
-	public void buenasDirector()
+	
+	public void buenasDirector(String director)
 	{
-		
+		System.out.println("Entra al metodo");
+		float total = 0;
+		char counter = 0;
+		for (int i = 0; i < datos.darTamano(); i++) 
+		{	
+			String[] temp = darElemento(i).split(",");
+			if(temp[7].trim().equals(director) && Float.parseFloat((temp[10])) >= 6)
+			{
+				counter ++;
+				total += Float.parseFloat((temp[10]));
+				vista.printMessage(darElemento(i));
+			}
+		}
+
+		vista.printMessage("El promedio es " + total/counter);
 	}
-	
-	
-//	public void imprimir()
-//	{
-//		for (int i = 0; i < datos.darTamano()/4; i++) {
-//			System.out.println(Arrays.deepToString((Object[]) datos.darElemento(i)));
-//			System.out.println(darTamano());
-//		}
-//	}
-	
-	
-
-
 }
