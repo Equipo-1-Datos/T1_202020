@@ -28,6 +28,28 @@ public class TestArregloDinamico {
 		assertTrue(arreglo != null);
 		assertEquals(0, arreglo.darTamano());
 	}
+	
+	@Test
+	public void testAgregar()
+	{
+		setUp1();
+		arreglo.agregar(1+"");
+		assertTrue("no da el elemento deseado", arreglo.darElemento(0).equals(1+""));
+	}
+	
+	@Test 
+	public void testDarCapacidad()
+	{
+		setUp1();
+		assertTrue("La capacidad es incorrecta", arreglo.darCapacidad() == 100);
+	}
+	
+	@Test
+	public void testDarTamano()
+	{
+		setUp1();
+		assertTrue("El tamano actual es incorrecto", arreglo.darTamano() == 0);
+	}
 
 	@Test
 	public void testDarElemento() {
@@ -35,6 +57,21 @@ public class TestArregloDinamico {
 		setUp2();
 		assertTrue("no da el elemento deseado", arreglo.darElemento(100).equals(100+""));
 		
+	}
+	
+	@Test
+	public void testBuscar()
+	{
+		setUp2();
+		assertTrue("El elemento no coincide", arreglo.buscar(""+100).equals(""+100));
+	}
+	
+	@Test 
+	public void testEliminar()
+	{
+		setUp1();
+		arreglo.agregar(""+1);
+		assertTrue("El elemento no coincide", arreglo.eliminar(""+1) == ""+1);
 	}
 
 }
