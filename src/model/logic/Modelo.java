@@ -142,7 +142,7 @@ public class Modelo<T> {
 		for (int i = 0; i < datos.darTamano(); i++) 
 		{	
 			String[] temp = darElemento(i).split(",");
-			if(temp[7].trim().equals(director) && Float.parseFloat((temp[10])) >= 6)
+			if(temp[7].trim().equalsIgnoreCase((director)) && Float.parseFloat((temp[10])) >= 6)
 			{
 				counter ++;
 				total += Float.parseFloat((temp[10]));
