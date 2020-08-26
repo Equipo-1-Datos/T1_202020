@@ -61,7 +61,7 @@ public class ArregloDinamico <T extends Comparable <T>> implements IArregloDinam
 		elementos[tamanoAct]= dato;
 //		System.out.println(dato);
 		tamanoAct++;
-		System.out.println(tamanoAct);
+//		System.out.println(tamanoAct);
 	}
 
 	public int darCapacidad() {

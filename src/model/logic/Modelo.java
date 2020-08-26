@@ -137,7 +137,6 @@ public class Modelo<T> {
 	
 	public void buenasDirector(String director)
 	{
-		System.out.println("Entra al metodo");
 		float total = 0;
 		char counter = 0;
 		for (int i = 0; i < datos.darTamano(); i++) 

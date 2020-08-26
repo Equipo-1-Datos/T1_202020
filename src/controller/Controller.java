@@ -38,8 +38,8 @@ public class Controller {
 				case 1:
 					view.printMessage("--------- \n Cargar Datos de los CSV: ");
 				    modelo.cargarDatos();
-				    view.printMessage("Información primera película: "+ modelo.darElemento(0));
-				    view.printMessage("Información primera película: "+ modelo.darElemento(27));
+				    view.printMessage("Información películas: "+ modelo.darElemento(0));
+				    view.printMessage("Información primera película: "+ modelo.darElemento(1));
 				    view.printMessage("Información última película: "+ modelo.darElemento(modelo.darTamano()-1));
 				    view.printMessage("Total de películas " + (modelo.darTamano()-1) + "\n---------");	
 					break;
@@ -48,7 +48,7 @@ public class Controller {
 					view.printMessage("--------- \n Buenas películas de un director: ");
 					lector.nextLine();
 					dato = lector.nextLine();
-					System.out.println("Este es el dato  "+ dato + "termina");
+//					System.out.println("Este es el dato  "+ dato + " termina");
 					modelo.buenasDirector(dato);	
 					break;
 //
